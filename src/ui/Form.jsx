@@ -1,11 +1,9 @@
 import { FormProvider, useForm, useFormContext } from "react-hook-form";
 import useRegister from "../hooks/useRegister";
 
-function Form({ children }) {
+function Form({ children, onSubmit }) {
   const methods = useForm();
   const { handleSubmit } = methods;
-
-  const onSubmit = data => console.log(data);
 
   return (
     <FormProvider {...methods}>
