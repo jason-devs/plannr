@@ -1,9 +1,11 @@
+import LoginForm from "../features/auth/LoginForm";
+import SignupForm from "../features/auth/SignupForm";
 import Modal from "../ui/Modal";
 
 function Landing() {
   return (
-    <div>
-      <Modal>
+    <Modal>
+      <div className="h-full">
         <Modal.Overlay />
         <h2>Plan apps the Jonas way!</h2>
         <p>
@@ -22,16 +24,18 @@ function Landing() {
         </p>
         <Modal.Content name="signup">
           <Modal.Header>
-            <h2>THIS IS THE SIGNUP</h2>
+            <h2>Signup</h2>
           </Modal.Header>
+          <SignupForm />
         </Modal.Content>
         <Modal.Content name="login">
           <Modal.Header>
-            <h2>THIS IS THE LOGIN</h2>
+            <h2>Login</h2>
           </Modal.Header>
+          <LoginForm />
         </Modal.Content>
-      </Modal>
-    </div>
+      </div>
+    </Modal>
   );
 }
 

@@ -3,7 +3,7 @@ import { HiMiniBars3 } from "react-icons/hi2";
 
 function AppLayout() {
   return (
-    <div>
+    <div className="grid h-full grid-rows-[50px_1fr_50px]">
       <header className="flex items-center justify-between">
         <h1>Plannr</h1>
         <button>
@@ -13,7 +13,7 @@ function AppLayout() {
       <main>
         <Outlet />
       </main>
-      <footer>
+      <footer className="flex items-center">
         <nav>
           <NavLink to="/">Home</NavLink>
         </nav>
