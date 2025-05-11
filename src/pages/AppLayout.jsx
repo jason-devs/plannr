@@ -60,7 +60,7 @@ function AppLayout() {
           <nav className="flex gap-1">
             <Link to="/dashboard">Dashboard</Link>
             <Link
-              to={`/project/${curProject._id || "681f710133941f1de48c80cc"}`}
+              to={`/project/${curProject?._id || "681f710133941f1de48c80cc"}`}
             >
               Current Project
             </Link>

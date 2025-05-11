@@ -17,7 +17,6 @@ function Dashboard() {
     queryKey: ["projects"],
     queryFn: async () => {
       const response = await api.get("/project");
-      console.log(response.data.data.docs);
       return response.data.data.docs;
     },
   });
