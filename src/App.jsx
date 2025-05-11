@@ -16,7 +16,6 @@ function App() {
   const { mutate: verify } = useMutation({
     mutationFn: () => api.get("/auth/verify"),
     onSuccess: response => {
-      console.log(response.data);
       dispatch(loginSuccess(response.data.currentUser));
       navigate("/dashboard");
     },
