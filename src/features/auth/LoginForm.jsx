@@ -15,7 +15,7 @@ function LoginForm() {
       const { name, projectList } = response.data.data.user;
 
       dispatch(loginSuccess({ name, projectList }));
-      navigate("/dashboard");
+      navigate("/dashboard/project");
     },
   });
 

@@ -37,7 +37,7 @@ function Header({ children }) {
 function Content({ children, name }) {
   const { openName } = useContext(ModalContext);
   return (
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-950">
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-amber-950">
       {openName === name ? children : null}
     </div>
   );
@@ -48,16 +48,19 @@ function Overlay() {
 
   return openName !== "" ? (
     <div
-      className="absolute h-full w-full backdrop-blur-sm"
+      className="absolute h-full w-full backdrop-blur-[1px]"
       onClick={handleClose}
     ></div>
   ) : null;
 }
 
-function Toggle({ children, name }) {
+function Toggle({ children, name, onToggle }) {
   const { handleOpen } = useContext(ModalContext);
   const clonedChild = cloneElement(children, {
-    onClick: () => handleOpen(name),
+    onClick: () => {
+      handleOpen(name);
+      onToggle?.();
+    },
   });
 
   return <>{clonedChild}</>;

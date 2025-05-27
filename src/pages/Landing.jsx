@@ -5,20 +5,26 @@ import Modal from "../ui/Modal";
 function Landing() {
   return (
     <Modal>
-      <div className="h-full">
+      <div className="flex h-full flex-col gap-3">
         <Modal.Overlay />
-        <h2>Plan apps the Jonas way!</h2>
-        <p>
+        <h2 className="text-4xl">Plan apps the Jonas way!</h2>
+        <p className="text-sm">
           Based on the methods taught by Jonas Schmedtmann in his React course.
         </p>
-        <Modal.Toggle name="signup">
-          <button>Sign Up</button>
-        </Modal.Toggle>
-        <button>Use Demo</button>
-        <p>
+        <div className="flex gap-3">
+          <Modal.Toggle name="signup">
+            <button className="rounded-sm bg-black px-3 py-1 text-2xl text-white">
+              Sign Up
+            </button>
+          </Modal.Toggle>
+          <button className="rounded-sm border px-3 py-1 text-2xl">
+            Use Demo
+          </button>
+        </div>
+        <p className="flex gap-1">
           Or
           <Modal.Toggle name="login">
-            <button>Log In</button>
+            <button className="font-black">Log In</button>
           </Modal.Toggle>
           here.
         </p>

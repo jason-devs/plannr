@@ -1,4 +1,5 @@
 import { FormProvider, useForm, useFormContext } from "react-hook-form";
+import TextareaAutosize from "react-textarea-autosize";
 import useRegister from "../hooks/useRegister";
 
 function Form({ children, onSubmit }) {
@@ -20,6 +21,22 @@ function Input({ name, validation = {}, ...rest }) {
   return <input {...rhfProps} {...rest} />;
 }
 
+function TextArea({ name, validation = {}, ...rest }) {
+  const rhfProps = useRegister(name, validation);
+
+  return <TextareaAutosize {...rhfProps} {...rest} />;
+}
+
+function Select({ children, name, validation = {}, ...rest }) {
+  const rhfProps = useRegister(name, validation);
+
+  return (
+    <select {...rhfProps} {...rest}>
+      {children}
+    </select>
+  );
+}
+
 function Label({ children }) {
   return <>{children}</>;
 }
@@ -37,6 +54,8 @@ function Submit({ children }) {
 }
 
 Form.Input = Input;
+Form.TextArea = TextArea;
+Form.Select = Select;
 Form.Label = Label;
 Form.Error = Error;
 Form.Submit = Submit;
