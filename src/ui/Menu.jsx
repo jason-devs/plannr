@@ -16,17 +16,25 @@ function Menu({ children }) {
   );
 }
 
-function Toggle({ children }) {
+function Toggle({ children, onToggle }) {
   const { handleToggle } = useContext(MenuContext);
   const clonedChild = cloneElement(children, {
-    onClick: handleToggle,
-    className: "relative",
+    onClick: () => {
+      handleToggle();
+      onToggle?.();
+    },
+    className: `${children.props.className || ""} relative`.trim(),
   });
   return clonedChild;
 }
 
-function Item({ children }) {
-  return <>{children}</>;
+function Item({ children, closeOnClick = false }) {
+  const { handleToggle } = useContext(MenuContext);
+  const clonedChild = cloneElement(children, {
+    onClick: handleToggle,
+  });
+
+  return <>{closeOnClick ? clonedChild : children}</>;
 }
 
 function Window({ children }) {
